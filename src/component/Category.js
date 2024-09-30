@@ -8,9 +8,7 @@ const Category = () => {
   const params = useParams();
   console.log("params", params);
   async function fetchCategory() {
-    const result = await axios(
-      "https://www.themealdb.com/api/json/v1/1/categories.php"
-    );
+    const result = await axios("https://www.themealdb.com/api/json/v1/1/categories.php");
     setCategory(result.data.categories);
   }
 
@@ -27,7 +25,6 @@ const Category = () => {
           <div key={subCategory.idCategory} className="category-card">
             <NavLink to={`/subcategory/${subCategory.strCategory}`}>
               <h6>{subCategory.strCategory}</h6>
-              {/* <p>{subCategory.strCategoryDescription}</p> */}
               <img
                 src={subCategory.strCategoryThumb}
                 alt={subCategory.strCategory}

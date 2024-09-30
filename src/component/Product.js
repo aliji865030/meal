@@ -1,11 +1,12 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { useParams, NavLink } from "react-router-dom";
+import { StoreContext } from "./../Context/StoreContext";
 import Search from "./Search";
+import axios from "axios";
 
 const Product = () => {
   const [product, setProduct] = useState({});
-
+  const { fav, addToFav, removeFromFav } = useContext(StoreContext);
   const params = useParams();
 
   async function fetchProduct() {
@@ -17,27 +18,45 @@ const Product = () => {
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  }, [params.productid]);
+
+  const isFavorited = fav.some(item => item.idMeal === product.idMeal);
+
+  const handleFavToggle = () => {
+    if (isFavorited) {
+      removeFromFav(product.idMeal);
+    } else {
+      addToFav(product);
+    }
+  };
 
   return (
     <div>
       <Search />
+      <NavLink to="/favorites" className="favorites-button">
+        Go to Favorites
+      </NavLink>
 
       <div className="product">
-        <h2>Category : {product.strCategory}</h2>
+        {/* <h2>Category: {product.strCategory}</h2> */}
         <div className="product-img">
+          <div>
           <h3>{product.strMeal}</h3>
           <img
             src={product.strMealThumb}
             alt={product.strMeal}
             style={{ width: "25rem" }}
           />
+          </div>
+          <div>
           <p>{product.strInstructions}</p>
-           <div>
-           {/* {product.strInstructions.split('\r\n').map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))} */}
-           </div>
+          </div>
+          <button 
+            onClick={handleFavToggle} 
+            style={{ position: 'absolute', top: '10px', right: '10px',padding:"10px 20px" , backgroundColor:"tomato",borderRadius:"20px",border:"none",cursor:"pointer",fontWeight:"600",color:"white" }}
+          >
+            {isFavorited ? "Remove from Favorites" : "Add to Favorites"}
+          </button>
         </div>
       </div>
     </div>

@@ -24,6 +24,9 @@ const SubCategory = () => {
   return (
     <div>
       <Search />
+      <NavLink to="/favorites" className="favorites-button">
+        Go to Favorites
+      </NavLink>
 
       <div
         style={{
@@ -36,9 +39,10 @@ const SubCategory = () => {
           margin: "10px",
           border: "1px solid black",
           borderRadius: "10px",
+          backgroundImage: "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)"
+
         }}
       >
-        {/* <h6>SubCategory</h6> */}
         <div className="sub-cat">
           {subCategoryProduct &&
             subCategoryProduct.map((product) => {

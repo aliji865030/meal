@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spicy+Rice&display=swap');
+.App{
+  font-family: "Kanit",sans-serif;
+}
 .category-page{
   display: flex;
   justify-content: center;
@@ -29,6 +33,9 @@
   text-align: center;
   padding: 5px 1px;
   text-decoration: underline;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 5px;
 }
 .category h2{
   color: tomato;
@@ -118,14 +125,15 @@ width: 250px;
 
 .product,.product .product-img{
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 50px;
 }
 .product{
-  padding: 10px 100px;
+  position: relative;
+  padding: 50px 100px;
   gap: 50px;
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
 }
 
 
@@ -149,4 +157,74 @@ width: 250px;
 .sub-cat a{
   color: black;
   text-decoration: none;
+}
+.favorites-button {
+  position: absolute;
+  top: 50px;
+  right: 150px;
+  background-color: tomato;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/* .product {
+  position: relative;
+} */
+
+                                               /* favorites */
+
+.favorite{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+}                 
+.favorite .favorites img{
+  width: 300px;
+  border-radius: 20px;
+}
+.favorites{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 4rem;
+  padding: 3rem 3rem;
+}
+.favorite h2{
+  font-size: 32px;
+  padding-top: 3rem;
+}
+.favorite .favorites .favorite-card h4{
+  color: black;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .category-page {
+    padding: 10px 20px;
+  }
+  .category-page img {
+    width: 150px;
+  }
+  .search-input {
+    padding: 10px 50px;
+  }
+  .product {
+    padding: 10px 20px;
+  }
+  .sub-cat {
+    padding: 10px 20px;
+  }
+  .sub-cat-card {
+    width: 150px;
+  }
+  .sub-cat-card img {
+    width: 150px;
+  }
 }

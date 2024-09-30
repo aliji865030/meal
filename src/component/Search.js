@@ -10,10 +10,10 @@ const Search = () => {
 
 
   async function searchProducts() {
-    const result = await axios.get(
-      `https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`
-    );
-    setProducts(result.data.meals);
+    if (input) {
+      const result = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`);
+      setProducts(result.data.meals);
+    }
   }
 
   return (
