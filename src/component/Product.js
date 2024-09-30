@@ -38,14 +38,12 @@ const Product = () => {
       </NavLink>
 
       <div className="product">
-        {/* <h2>Category: {product.strCategory}</h2> */}
         <div className="product-img">
           <div>
           <h3>{product.strMeal}</h3>
           <img
             src={product.strMealThumb}
             alt={product.strMeal}
-            style={{ width: "25rem" }}
           />
           </div>
           <div>
